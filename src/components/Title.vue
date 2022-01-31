@@ -1,14 +1,12 @@
 <template>
-    <h2 :class="className">{{ title }}</h2>
+  <h2 :class="className">{{ title }}</h2>
 </template>
 
 <script>
-    export default {
-        name: "Title",
-        props: ['title','className']
-    }
+export default {
+  name: "Title",
+  props: ["title", "className"],
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

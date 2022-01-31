@@ -14,10 +14,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Padauk:wght@400;700&display=swap');
-$font-family-sans-serif : 'Montserrat', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Padauk:wght@400;700&display=swap");
+$font-family-sans-serif: "Montserrat", sans-serif;
 
-$primary : #42b983;
+$primary: #42b983;
 
 @import "~bootstrap/scss/bootstrap";
 </style>

@@ -10,7 +10,7 @@
           class-name="text-uppercase mt-5 fw-bolder"
           sub-title="your balance"
         />
-        <Title class-name="fw-bolder mb-4" :title="'$'+yourBalance" />
+        <Title class-name="fw-bolder mb-4" :title="'$' + yourBalance" />
         <div class="card shadow">
           <div class="card-body p-0">
             <div class="row">
@@ -35,15 +35,18 @@
           sub-title="History"
         />
         <hr />
-        <List :transactions="transactions" @del="delTran" class-name="b-danger" />
+        <List
+          :transactions="transactions"
+          @del="delTran"
+          class-name="b-danger"
+        />
         <sub-title
           class-name="text-uppercase mt-5 fw-bolder"
           sub-title="Add new transaction"
         />
         <hr />
         <TransactionAdd @addTran="addTran" />
-        <hr>
-
+        <hr />
       </div>
     </div>
   </div>
@@ -57,52 +60,53 @@ import TransactionAdd from "./TransactionAdd";
 
 export default {
   name: "HelloWorld",
-  components: {TransactionAdd, List, SubTitle, Title },
+  components: { TransactionAdd, List, SubTitle, Title },
   data() {
     return {
       transactions: [
         {
-          id : "1",
+          id: "1",
           tranName: "Car",
           price: 500,
-          picked : 'expense'
+          picked: "expense",
         },
         {
-          id : '2',
+          id: "2",
           tranName: "Book",
           price: 500,
-          picked : 'expense'
+          picked: "expense",
         },
         {
-          id : "3",
+          id: "3",
           tranName: "Salary",
           price: 500000,
-          picked : 'income'
+          picked: "income",
         },
       ],
     };
   },
   computed: {
     expensedAmount() {
-      return this.transactions.filter(el => el.picked == 'expense').reduce((total,curr) => total + curr.price ,0);
+      return this.transactions
+        .filter((el) => el.picked == "expense")
+        .reduce((total, curr) => total + curr.price, 0);
     },
     incomedAmount() {
-      return this.transactions.filter(el => el.picked == 'income').reduce((total,curr) => total + curr.price ,0);
+      return this.transactions
+        .filter((el) => el.picked == "income")
+        .reduce((total, curr) => total + curr.price, 0);
     },
     yourBalance() {
       return this.incomedAmount - Math.abs(this.expensedAmount);
-    }
+    },
   },
   methods: {
     addTran(transactions) {
-      this.transactions.push({id : this.transactions.length,...transactions});
-
+      this.transactions.push({ id: this.transactions.length, ...transactions });
     },
     delTran(id) {
-      this.transactions = this.transactions.filter(el => el.id != id);
-    }
-
-
+      this.transactions = this.transactions.filter((el) => el.id != id);
+    },
   },
 };
 </script>
